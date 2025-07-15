@@ -1,0 +1,74 @@
+Nai Canvas Database Query:
+-- categories
+CREATE TABLE categories (
+  category_id SERIAL PRIMARY KEY,
+  name VARCHAR(50) UNIQUE NOT NULL
+);
+
+-- artists
+CREATE TABLE artists (
+  artist_id SERIAL PRIMARY KEY,
+  name VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- artworks
+CREATE TABLE artworks (
+  artwork_id SERIAL PRIMARY KEY,
+  artist_id INTEGER REFERENCES artists(artist_id),
+  category_id INTEGER REFERENCES categories(category_id),
+  filename VARCHAR(255) NOT NULL
+);
+
+INSERT INTO categories (name) VALUES 
+('digital'),
+('classism'),
+('abstract'),
+('cubism')
+ON CONFLICT (name) DO NOTHING;
+
+INSERT INTO artists (name) VALUES 
+('3motional studio'),
+('Airam Dato'),
+('Anni Roenkae'),
+('Antonio Filgino'),
+('Bero B. Scura'),
+('Emere Canecer'),
+('Ivan Auillar'),
+('Mo Eid'),
+('Phil Kallahar'),
+('Pixabay'),
+('Sahil Sharma'),
+('Scott Webb'),
+('Steve Johnson')
+ON CONFLICT (name) DO NOTHING;
+
+INSERT INTO artworks (artist_id, category_id, filename) VALUES 
+((SELECT artist_id FROM artists WHERE name = '3motional studio'), (SELECT category_id FROM categories WHERE name = 'digital'), '3motional-studio_digitalart1.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Airam Dato'), (SELECT category_id FROM categories WHERE name = 'classism'), 'airamdato_classism1_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Anni Roenkae'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'anniroenkae_abstract6_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Antonio Filgino'), (SELECT category_id FROM categories WHERE name = 'cubism'), 'antonio-filgino_cubism3.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Bero B. Scura'), (SELECT category_id FROM categories WHERE name = 'cubism'), 'berobscura_cubism1_original'),
+
+((SELECT artist_id FROM artists WHERE name = 'Emere Canecer'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'emrecanacer_abstract1_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Ivan Auillar'), (SELECT category_id FROM categories WHERE name = 'cubism'), 'ivanauillar_cubism2_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Mo Eid'), (SELECT category_id FROM categories WHERE name = 'digital'), 'mo-eid-digital2.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Mo-eid'), (SELECT category_id FROM categories WHERE name = 'digital'), 'mo-eid-digital3.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Phil Kallahar'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'philkallahar_abstract5_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Pixabay'), (SELECT category_id FROM categories WHERE name = 'classism'), 'pixabay-classism4.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Sahil Sharma'), (SELECT category_id FROM categories WHERE name = 'classism'), 'sahilsharma-classism3_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Scott Webb'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'scottwebb-abstract4_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Steve Johnson'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'steve-johnsonabstract2_original.jpg'),
+
+((SELECT artist_id FROM artists WHERE name = 'Steve Johnson'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'steve-johnsonabstract3_original.jpg');

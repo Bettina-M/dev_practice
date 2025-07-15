@@ -18,7 +18,7 @@ app.use(expressLayouts)
 app.set("layout", "./layouts/layout")
 
 //3.Routes Section
-app.use(express.static("public"))
+app.use(express.static(path.join(__dirname, "art_shop", "public")));
 
 //Index/homepage Route
 app.use("/", homeRoute)

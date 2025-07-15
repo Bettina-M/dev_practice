@@ -1,0 +1,81 @@
+
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+    #homepage p {
+        font-size: 1.2em;
+        font-family: 'sans-serif', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #discover-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+        
+    }
+    #discover-btn:hover {
+        background-color: #0056b3;
+    }
+    
+    .naicanvas{
+        font-family: 'montserrat', sans-serif;
+        font-size:3rem;
+        font-weight: 400;
+        color:#03274d;
+        padding: 10px;
+       
+
+    }
+
+    nav{
+        display: none;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav.active{
+        display: block;
+        
+    }
+
+    nav a{
+        margin: 10px 0;
+        font-size: 1.2em;
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #menu-btn{
+        position: fixed;
+        top: 5px;
+        right: 10px;
+        font-size: 2em;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #menu-button.open::after {
+    content: "❎";
+    font-size: 2rem;
+    }
+@media screen and (min-width: 768px){
+    nav{
+        display: flex;
+        justify-content: flex-end;
+        gap: 30px;
+    }
+
+    #menu-btn{
+        display: none;
+    }
+
+    .naicanvas{
+        position: fixed;
+        top: 5px;
+        left: 5px;
+    }
+    .logo{
+        height:700px;
+    }
+}
