@@ -1,4 +1,11 @@
 //const utilites = require("../utilities/")
 
-//async function buildHome (req,res) {
+const ctrl = {}
 
+ctrl.buildHome = (req,res) => {
+    res.render("index", {
+    title: "Nai Canvas"
+})
+}
+
+module.exports = ctrl;

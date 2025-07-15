@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "Render DB",
+            "connectString": "postgresql://dbnaicanvas:R9gpNQuUwOtxRHlqJj9Bf1TscEs5bUQ7@dpg-d1r5bmodl3ps73f39mr0-a.frankfurt-postgres.render.com/dbnaicanvas"
+        }
+    ]
+}
