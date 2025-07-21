@@ -23,6 +23,9 @@ app.use(express.static(path.join(__dirname, "art_shop", "public")));
 //Index/homepage Route
 app.use("/", homeRoute)
 
+//Cateogories page
+app.use("/categories", homeRoute)
+
 //Local Server Information
 
 const port = process.env.PORT
