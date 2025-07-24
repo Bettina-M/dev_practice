@@ -1,0 +1,9 @@
+<div><%- title %></div>
+
+
+    <% artWorks.forEach(art => { %>
+      <img src="/images/art_collections/<%= art.filename %>" alt="<%= art.category_name %> artwork" width="400">
+      <p> Art By <%= art.artist_name %></p>
+
+      
+  <% }) %>

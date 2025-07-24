@@ -5,7 +5,7 @@ const path = require('path');
 
 const env = require("dotenv").config()
 const homeRoute = require("./art_shop/routes/home")
-const artController = require("./art_shop/controller/artController")
+const artRoute = require("./art_shop/routes/categoriesRoute")
 
 
 //1.Middleware section
@@ -23,8 +23,11 @@ app.use(express.static(path.join(__dirname, "art_shop", "public")));
 //Index/homepage Route
 app.use("/", homeRoute)
 
-//Cateogories page
+//Categories page
 app.use("/categories", homeRoute)
+
+//artworks by category page
+app.use("/", artRoute)
 
 //Local Server Information
 

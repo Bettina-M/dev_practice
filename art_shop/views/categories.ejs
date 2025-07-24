@@ -1,6 +1,11 @@
-<%- title %>
-<ul>
-  <% categories.forEach(category => { %>
-    <li><%= category.name %></li>
-  <% }) %>
-</ul>
+<div id="categories-page">
+  <div class="naicanvas"><%- title %></div>
+  <h3 id="categories-title">Categories</h3>
+  <ul>
+    <% categories.forEach(category => { %>
+      <li>
+        <a href="/categories/<%= category.category_id %>"><%= category.name %></a>
+      </li>
+    <% }) %>
+  </ul>
+</div>

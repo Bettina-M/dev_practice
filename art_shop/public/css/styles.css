@@ -5,19 +5,43 @@
     }
     #homepage p {
         font-size: 1.2em;
-        font-family: 'sans-serif', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
     #discover-btn {
-        padding: 10px 20px;
-        font-size: 1em;
-        
+        font-family: 'Rock Salt', sans-serif;
+         --b: 3px;   /* border thickness */
+         --s: .45em; /* size of the corner */
+        --color:#ffff;
+  
+        padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+        color: var(--color);
+        --_p: var(--s);
+        background:conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+        var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+        transition: .3s linear, color 0s, background-color 0s;
+        outline: var(--b) solid #0000;
+        outline-offset: .6em;
+        font-size: 16px;
+        border: 0;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;    
     }
-    #discover-btn:hover {
-        background-color: #0056b3;
+
+    #discover-btn:hover:hover,
+    #discover-btn:hover:focus-visible{
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
     }
-    
+
+    #discover-btn:hover:active {
+    background: var(--color);
+    color: #fff;
+    }
+
     .naicanvas{
-        font-family: 'montserrat', sans-serif;
+        font-family: 'Rock Salt', sans-serif;
         font-size:3rem;
         font-weight: 400;
         color:#03274d;
@@ -40,10 +64,12 @@
     nav a{
         margin: 10px 0;
         font-size: 1.2em;
-        color: #333;
+        
+        color: #ffff;
         text-decoration: none;
         display: flex;
         flex-direction: column;
+        z-index: 1000;
     }
 
     #menu-btn{
@@ -59,11 +85,56 @@
     content: "❎";
     font-size: 2rem;
     }
+
+    #categories-title{
+        font-family: 'Rock Salt', sans-serif;
+        font-size: 2rem;
+        font-weight: 400;
+        color: #ffff;
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 20px;
+        
+    }
+
+    #categories-page{
+        background-image: url('../images/art_collections/category-banner.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        margin-top: -100px;
+    
+    }
+
+    #categories-page ul {
+        list-style: none;
+        text-decoration: none;
+        padding: 0;
+        margin: 20px auto;
+        max-width: 600px;
+        text-align: center;
+        font-size: 3rem;
+        line-height: 5rem;
+        
+    }
+
+    #categories-page ul a{
+        text-decoration: none;
+        color: #ffff;
+        font-family: 'Rock Salt', sans-serif;    
+    }
+
+    #categories-page ul a:hover {
+        color: #03274d;
+        text-decoration: underline;
+
+    }
 @media screen and (min-width: 768px){
     nav{
         display: flex;
         justify-content: flex-end;
         gap: 30px;
+        
     }
 
     #menu-btn{
@@ -74,8 +145,34 @@
         position: fixed;
         top: 5px;
         left: 5px;
+        color:#fff
     }
     .logo{
         height:700px;
+        margin-top: -70px;
     }
+    #about-me{
+        position:fixed;
+        top: 400px;
+        right: 5px;
+        color: #fff;
+        text-align: left;
+    }
+
+    #about-me h2{
+        font-family: 'Rock Salt', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        font-style: italic;
+        text-decoration: underline;
+        
+    }
+
+    #about-me p{
+        font-family: 'Roboto', sans-serif;
+        font-weight: -100;
+        margin: 10px 0;
+    }
+
+
 }

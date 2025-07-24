@@ -10,12 +10,19 @@ ctrl.buildHome = (req,res) => {
 }
 
 ctrl.getCategories = async function(req,res){
-    const categories = await categoriesmodel.getCategories()
+    try{
+        const categories = await categoriesmodel.getCategories()
 
-    res.render("categories",{
-        title: "Art Categories",
+        res.render("categories",{
+        title: "Nai Canvas",
         categories
     })
+    }catch(error){
+        console.log(error)
+        //learn about internal server error
+    }
+    
 }
+
 
 module.exports = ctrl;
