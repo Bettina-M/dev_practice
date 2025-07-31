@@ -1,0 +1,14 @@
+<div id="login-page">
+    <h2><%- title %></h2>
+    <form id="login-form" action="/categories" method="post">
+        <p>Please Login</p>
+        <input type="email" id="email" name="email" required placeholder="Email address">
+        <input type="password" id="hash_password" name="hash_password" required placeholder="Password">
+        <input type="checkbox" id="remeber-me" name="remember-me">
+        <label for="remember-me">Remember me</label>
+        <span id="forgot-password"><a href="/forgot-password">Forgot Password?</a></span>
+        <button type="submit" id="login-btn">Login</button>
+        <p>Dont have an account? <a href="/signup">Sign up</a></p>
+   
+    </form>
+</div>

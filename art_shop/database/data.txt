@@ -72,3 +72,14 @@ INSERT INTO artworks (artist_id, category_id, filename) VALUES
 ((SELECT artist_id FROM artists WHERE name = 'Steve Johnson'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'steve-johnsonabstract2_original.jpg'),
 
 ((SELECT artist_id FROM artists WHERE name = 'Steve Johnson'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'steve-johnsonabstract3_original.jpg');
+
+
+CREATE TABLE users(
+id SERIAL PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+password_hash VARCHAR(500) NOT NULL,
+account_type VARCHAR(100) NOT NULL
+);
+
+ALTER TABLE users
+ADD COLUMN email VARCHAR(50) UNIQUE NOT NULL;

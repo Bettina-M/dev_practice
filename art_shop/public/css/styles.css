@@ -98,10 +98,12 @@
     }
 
     #categories-page{
-        background-image: url('../images/art_collections/category-banner.jpg');
+       /* background-image: url('../images/art_collections/category-banner.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: center;*/
         height: 100vh;
+        /*background: linear-gradient(to bottom, #a3c4e8, #03274d);*/
+        background: linear-gradient(to bottom, #03274d, #000000);
         margin-top: -100px;
     
     }
@@ -129,6 +131,30 @@
         text-decoration: underline;
 
     }
+/*artworks page*/
+    #artworks-page {
+
+        display: inline-block;
+        max-width: 100%;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        
+    }
+
+    #artworks-page img {
+        border-radius: 10px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .page-style{
+        background: linear-gradient(to bottom, #a3c4e8, #03274d);
+        
+        width:100%;
+       /* margin-top: -100px;*/
+        z-index: -1000;
+    }
+
 @media screen and (min-width: 768px){
     nav{
         display: flex;
@@ -172,6 +198,21 @@
         font-family: 'Roboto', sans-serif;
         font-weight: -100;
         margin: 10px 0;
+    }
+
+    /*artworks page*/
+    #artworks-page{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        
+    }
+
+    #artworks-page img {
+       width: 400px;
+       height: auto;
+    
     }
 
 

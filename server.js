@@ -2,10 +2,13 @@ const express = require ("express")
 const expressLayouts = require("express-ejs-layouts")
 const app = express()
 const path = require('path');
-
 const env = require("dotenv").config()
 const homeRoute = require("./art_shop/routes/home")
 const artRoute = require("./art_shop/routes/categoriesRoute")
+const jwt = require("jsonwebtoken")
+const bcrypt = require("bcrypt") 
+const session = require("express-session")
+
 
 
 //1.Middleware section
@@ -28,6 +31,15 @@ app.use("/categories", homeRoute)
 
 //artworks by category page
 app.use("/", artRoute)
+
+//login page
+app.use("/login", homeRoute)
+
+//contact form page
+app.use("/contact",homeRoute)
+
+//signup page
+app.use("/signup", homeRoute)
 
 //Local Server Information
 

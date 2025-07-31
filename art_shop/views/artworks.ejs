@@ -1,9 +1,15 @@
-<div><%- title %></div>
-
-
-    <% artWorks.forEach(art => { %>
-      <img src="/images/art_collections/<%= art.filename %>" alt="<%= art.category_name %> artwork" width="400">
-      <p> Art By <%= art.artist_name %></p>
-
-      
-  <% }) %>
+<div class="page-style">
+  <div class="naicanvas"><%- title %></div>
+  <span>🛒</span>
+  <div id="artworks-page">
+      <% artWorks.forEach(art => { %>
+        <figure>
+          <img src="/images/art_collections/<%= art.filename %>" alt="<%= art.category_name %> artwork" width="400">
+          <figcaption> Art By <%= art.artist_name %> </figcaption>
+          <figcaption>$<%= art.price %></figcaption>
+          <button class="add-cart-btn">🛒</button>
+        </figure>
+        
+    <% }) %>
+  </div>
+ </div> 
