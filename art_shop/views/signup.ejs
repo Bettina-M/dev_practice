@@ -1,11 +1,11 @@
 <div id="signup-page">
     <h2><%- title %></h2>
-    <form id="signup-form" action="/login" method="post">
+    <form id="signup-form" action="/signup" method="POST">
         <p>Create an Account</p>
-        <input type="text" id="username" name="username" required placeholder="Username">
-        <input type="email" id="email" name="email" required placeholder="Email address">
-        <input type="password" id="hash_password" name="hash_password" required placeholder="Password">
-        <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm Password">
+        <input type="text" id="username" name="username" required placeholder="Username" required>
+        <input type="email" id="email" name="email" required placeholder="Email address" required>
+        <input type="password" id="password_hash" name="password_hash" required placeholder="Password" required>
+        <input type="text" id="account_type" name="account_type" required placeholder="account_type">
         <button type="submit" id="signup-btn">Sign Up</button>
         <p>Already have an account? <a href="/login">Login</a></p>
     </form>

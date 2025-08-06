@@ -8,17 +8,21 @@ const artRoute = require("./art_shop/routes/categoriesRoute")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt") 
 const session = require("express-session")
+const cookieParser = require("cookie-parser")
 
 
 
 //1.Middleware section
-
+app.use(cookieParser())
 //setting views directory//
 app.set('views', path.join(__dirname, 'art_shop/views'));
 //2.View Engine and Templates
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout")
+
+app.use(express.urlencoded({extended: true})) //to parse incoming request bodies
+app.use(express.json()) //to parse JSON data
 
 //3.Routes Section
 app.use(express.static(path.join(__dirname, "art_shop", "public")));
