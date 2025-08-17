@@ -73,13 +73,33 @@ INSERT INTO artworks (artist_id, category_id, filename) VALUES
 
 ((SELECT artist_id FROM artists WHERE name = 'Steve Johnson'), (SELECT category_id FROM categories WHERE name = 'abstract'), 'steve-johnsonabstract3_original.jpg');
 
+##Remember to add price COLUMN
+
+
+UPDATE public.artworks
+SET price = CASE 
+    WHEN artwork_id = 1 THEN 100
+    WHEN artwork_id = 2 THEN 200
+    WHEN artwork_id = 3 THEN 120
+    WHEN artwork_id = 4 THEN 150
+    WHEN artwork_id = 5 THEN 100
+    WHEN artwork_id = 6 THEN 300
+    WHEN artwork_id = 7 THEN 125
+    WHEN artwork_id = 8 THEN 100
+    WHEN artwork_id = 9 THEN 200
+    WHEN artwork_id = 10 THEN 120
+    WHEN artwork_id = 11 THEN 150
+    WHEN artwork_id = 12 THEN 100
+    WHEN artwork_id = 13 THEN 300
+    WHEN artwork_id = 14 THEN 125
+END;
+
 
 CREATE TABLE users(
 id SERIAL PRIMARY KEY,
 username VARCHAR(50) UNIQUE NOT NULL,
+email VARCHAR(50) UNIQUE NOT NULL,
 password_hash VARCHAR(500) NOT NULL,
 account_type VARCHAR(100) NOT NULL
 );
 
-ALTER TABLE users
-ADD COLUMN email VARCHAR(50) UNIQUE NOT NULL;

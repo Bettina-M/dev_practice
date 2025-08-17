@@ -3,7 +3,7 @@ const pool = require('../database/db')
 async function createUser(username, email, password_hash, account_type){
     try{
         const query = await pool.query("INSERT INTO users (username, email, password_hash, account_type) VALUES ($1,$2,$3,$4) RETURNING *",
-        [username, password_hash, account_type, email]);
+        [username,email, password_hash, account_type ]);
          return query.rows[0];
     }catch(error){
         console.error("Error creating user:", error);
