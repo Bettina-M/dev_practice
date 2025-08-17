@@ -48,13 +48,13 @@ async function loginUser(req, res){
     try{
         const {email, password_hash} = req.body //fetches data entered by user in login form
 
-        const user = authModel.getUserByemail(email) //checks for the email in the DB
+        const user = await authModel.getUserByemail(email) //checks for the email in the DB
 
         if (!user){
             return res.status(401).send("Email not found") //error if the email isnt found
         }
 
-        const validPass = await bcrypt.compare(password_hash, user.password) //if present continues to check if password is correct
+        const validPass = await bcrypt.compare(password_hash, user.password_hash) //if present continues to check if password is correct
 
         if (!validPass){
             return res.status(401).send("Incorrect Password")
